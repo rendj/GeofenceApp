@@ -12,7 +12,8 @@ class GeofenceScreenFactory {
     func view() -> UIViewController {
         let geofenceViewController = GeofenceViewController.instantiate()
         let geofenceLocationService = GeofenceLocationService()
-        let geofenceViewModel = GeofenceViewModel(locationService: geofenceLocationService)
+        let geofenceModel = GeofenceModel(lattitude: 0.0, longitude: 0.0, radius: 0, wiFiHotspotName: "")
+        let geofenceViewModel = GeofenceViewModel(locationService: geofenceLocationService, model: geofenceModel)
         geofenceViewController.viewModel = geofenceViewModel
         return geofenceViewController;
     }

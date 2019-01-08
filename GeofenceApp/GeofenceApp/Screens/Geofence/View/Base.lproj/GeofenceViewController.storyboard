@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Undefined" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00H-4c-oOo">
-                                <rect key="frame" x="84" y="415.5" width="271" height="20.5"/>
+                                <rect key="frame" x="84" y="415" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIg-AZ-Lp3">
                                 <rect key="frame" x="20" y="542.5" width="335" height="44"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hxg-LB-Hgn"/>
                                 </constraints>
@@ -79,9 +79,13 @@
                                     <action selector="checkGeofenceStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qaV-zq-7yK"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="voF-gn-90j">
+                                <rect key="frame" x="174" y="415.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="voF-gn-90j" firstAttribute="leading" secondItem="00H-4c-oOo" secondAttribute="trailing" constant="10" id="0Vf-zM-H3G"/>
                             <constraint firstItem="pun-6Q-yE4" firstAttribute="top" secondItem="KSt-m4-Mcg" secondAttribute="bottom" constant="20" id="2lK-1H-KAX"/>
                             <constraint firstItem="pEF-Iw-Yxc" firstAttribute="top" secondItem="AUh-jj-Ssr" secondAttribute="bottom" constant="20" id="5FB-jM-NUp"/>
                             <constraint firstItem="AUh-jj-Ssr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5ks-Rb-xcA"/>
@@ -94,10 +98,11 @@
                             <constraint firstItem="pLw-PN-S8A" firstAttribute="centerY" secondItem="KSt-m4-Mcg" secondAttribute="centerY" id="YTb-cI-ZJ5"/>
                             <constraint firstItem="pLw-PN-S8A" firstAttribute="leading" secondItem="KSt-m4-Mcg" secondAttribute="trailing" constant="10" id="Z8x-ZT-1Bj"/>
                             <constraint firstItem="AUh-jj-Ssr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZkZ-bg-PRd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="00H-4c-oOo" secondAttribute="trailing" constant="20" id="fnF-3V-fbh"/>
                             <constraint firstItem="00H-4c-oOo" firstAttribute="centerY" secondItem="pEF-Iw-Yxc" secondAttribute="centerY" id="kSu-IG-5nV"/>
                             <constraint firstItem="oIg-AZ-Lp3" firstAttribute="top" secondItem="syX-PM-ojG" secondAttribute="bottom" constant="20" id="ms6-KI-iG5"/>
                             <constraint firstItem="AUh-jj-Ssr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mzo-Nb-LoT"/>
+                            <constraint firstItem="voF-gn-90j" firstAttribute="centerY" secondItem="00H-4c-oOo" secondAttribute="centerY" id="pJL-r9-Gyp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="voF-gn-90j" secondAttribute="trailing" constant="20" id="pVZ-kW-Xt9"/>
                             <constraint firstItem="syX-PM-ojG" firstAttribute="centerY" secondItem="pun-6Q-yE4" secondAttribute="centerY" id="qxM-Cg-JUE"/>
                             <constraint firstItem="KSt-m4-Mcg" firstAttribute="top" secondItem="pEF-Iw-Yxc" secondAttribute="bottom" constant="20" id="rkJ-UY-tue"/>
                             <constraint firstItem="KSt-m4-Mcg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vV1-78-xjG"/>
@@ -108,6 +113,8 @@
                     </view>
                     <connections>
                         <outlet property="areaRadiusTestField" destination="pLw-PN-S8A" id="54N-JI-rDL"/>
+                        <outlet property="checkButton" destination="oIg-AZ-Lp3" id="rnf-xh-xaY"/>
+                        <outlet property="locationCheckingActivityView" destination="voF-gn-90j" id="w5y-kB-2Z9"/>
                         <outlet property="mapView" destination="AUh-jj-Ssr" id="Aef-sK-OoB"/>
                         <outlet property="mapViewTopContstraint" destination="ZkZ-bg-PRd" id="QG7-P6-25D"/>
                         <outlet property="statusLabel" destination="00H-4c-oOo" id="Rhe-Jr-o6u"/>

@@ -21,6 +21,8 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var areaRadiusTestField: UITextField!
     @IBOutlet weak var wiFiHotspotNameTextField: UITextField!
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var locationCheckingActivityView: UIActivityIndicatorView!
     
     @IBOutlet weak var mapViewTopContstraint: NSLayoutConstraint!
     
@@ -33,6 +35,18 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
     private func setupViewModelBindings() {
         viewModel.updateStatus = { [weak self] status in
             self?.statusLabel.text = status
+        }
+        viewModel.startLocationDetectionActivity = { [weak self] in
+            //TODO: - move string to the Model
+            self?.statusLabel.text = "Calculating..."
+            self?.checkButton.isEnabled = false
+            self?.mapView.isUserInteractionEnabled = false
+            self?.locationCheckingActivityView.startAnimating()
+        }
+        viewModel.endLocationDetectionActivity =  { [weak self] in
+            self?.checkButton.isEnabled = true
+            self?.mapView.isUserInteractionEnabled = true
+            self?.locationCheckingActivityView.stopAnimating()
         }
     }
     
@@ -57,6 +71,19 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
 }
 
 extension GeofenceViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case areaRadiusTestField:
+            //TODO: - is it make sense to get rid of "!"?
+            viewModel.radiusWasPicked(radius: UInt(textField.text! + string)!)
+        case wiFiHotspotNameTextField:
+            viewModel.wiFiHotspotNameWasPicked(name: textField.text! + string)
+        default: break
+        }
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
