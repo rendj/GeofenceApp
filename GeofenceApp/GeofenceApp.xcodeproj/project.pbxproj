@@ -16,6 +16,7 @@
 		B53DE5FE21E4B43F001DE422 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */; };
 		B53DE60521E4B5BE001DE422 /* GeofenceScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */; };
 		B53DE60721E4B6C7001DE422 /* GeofenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */; };
+		B53DE60A21E4F40D001DE422 /* GeofenceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceScreenFactory.swift; sourceTree = "<group>"; };
 		B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceViewModel.swift; sourceTree = "<group>"; };
+		B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceLocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		B53DE60821E4B727001DE422 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				B53DE5DF21E4B17C001DE422 /* GeofenceViewController.swift in Sources */,
 				B53DE5FE21E4B43F001DE422 /* StoryboardInstantiable.swift in Sources */,
 				B53DE60521E4B5BE001DE422 /* GeofenceScreenFactory.swift in Sources */,
+				B53DE60A21E4F40D001DE422 /* GeofenceLocationService.swift in Sources */,
 				B53DE5DD21E4B17C001DE422 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

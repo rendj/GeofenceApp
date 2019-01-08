@@ -10,4 +10,24 @@ import Foundation
 
 class GeofenceViewModel {
     
+    let locationService: GeofenceLocationService
+    var updateStatus: ((String) -> Void)!
+    
+    init(locationService: GeofenceLocationService) {
+        self.locationService = locationService
+    }
+    
+    func requestGeofenceStatus() {
+        locationService.requestCurrentLocation { [weak self] (location, error) in
+            switch (location, error) {
+            case (let location?, nil):
+                //TODO: - calculate actual status
+                self?.updateStatus(".....")
+            case (nil, let error?):
+                self?.updateStatus(error.localizedDescription)
+            default:
+                self?.updateStatus("undefined...")
+            }
+        }
+    }
 }

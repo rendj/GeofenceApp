@@ -10,6 +10,12 @@ import UIKit
 import MapKit
 
 class GeofenceViewController: UIViewController, StoryboardInstantiable {
+    
+    var viewModel: GeofenceViewModel! {
+        didSet {
+            setupViewModelBindings()
+        }
+    }
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -24,6 +30,12 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
         setupNotifications()
     }
     
+    private func setupViewModelBindings() {
+        viewModel.updateStatus = { [weak self] status in
+            self?.statusLabel.text = status
+        }
+    }
+    
     private func setupGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
@@ -36,7 +48,7 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
     }
     
     @IBAction func checkGeofenceStatus(_ sender: Any) {
-        
+        viewModel.requestGeofenceStatus()
     }
 }
 
@@ -57,19 +69,19 @@ extension GeofenceViewController {
             let animationDuration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
             let endFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
             let animationCurveRawValue = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt {
-            if wiFiHotspotNameTextField.frame.origin.y > endFrame.origin.y {
-                mapViewTopContstraint.constant = endFrame.origin.y - wiFiHotspotNameTextField.frame.origin.y - wiFiHotspotNameTextField.frame.size.height
-            } else {
-                mapViewTopContstraint.constant = 0.0
-            }
-            let animationCurveOption = UIView.KeyframeAnimationOptions(rawValue: animationCurveRawValue)
-            UIView.animateKeyframes(withDuration: animationDuration,
-                                    delay: 0.0,
-                                    options: animationCurveOption,
-                                    animations: {
-                                        self.view.layoutIfNeeded()
-            },
-                                    completion: nil)
+                if wiFiHotspotNameTextField.frame.origin.y > endFrame.origin.y {
+                    mapViewTopContstraint.constant = endFrame.origin.y - wiFiHotspotNameTextField.frame.origin.y - wiFiHotspotNameTextField.frame.size.height
+                } else {
+                    mapViewTopContstraint.constant = 0.0
+                }
+                let animationCurveOption = UIView.KeyframeAnimationOptions(rawValue: animationCurveRawValue)
+                UIView.animateKeyframes(withDuration: animationDuration,
+                                        delay: 0.0,
+                                        options: animationCurveOption,
+                                        animations: {
+                                            self.view.layoutIfNeeded()
+                                        },
+                                        completion: nil)
         }
     }
 }

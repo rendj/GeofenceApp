@@ -11,6 +11,9 @@ import UIKit
 class GeofenceScreenFactory {
     func view() -> UIViewController {
         let geofenceViewController = GeofenceViewController.instantiate()
+        let geofenceLocationService = GeofenceLocationService()
+        let geofenceViewModel = GeofenceViewModel(locationService: geofenceLocationService)
+        geofenceViewController.viewModel = geofenceViewModel
         return geofenceViewController;
     }
 }
