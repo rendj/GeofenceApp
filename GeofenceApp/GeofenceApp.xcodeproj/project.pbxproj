@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B53DE5DD21E4B17C001DE422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5DC21E4B17C001DE422 /* AppDelegate.swift */; };
-		B53DE5DF21E4B17C001DE422 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5DE21E4B17C001DE422 /* ViewController.swift */; };
-		B53DE5E221E4B17C001DE422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E021E4B17C001DE422 /* Main.storyboard */; };
+		B53DE5DF21E4B17C001DE422 /* GeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5DE21E4B17C001DE422 /* GeofenceViewController.swift */; };
+		B53DE5E221E4B17C001DE422 /* GeofenceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E021E4B17C001DE422 /* GeofenceViewController.storyboard */; };
 		B53DE5E421E4B17E001DE422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E321E4B17E001DE422 /* Assets.xcassets */; };
 		B53DE5E721E4B17E001DE422 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E521E4B17E001DE422 /* LaunchScreen.storyboard */; };
 		B53DE5F221E4B17E001DE422 /* GeofenceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5F121E4B17E001DE422 /* GeofenceAppTests.swift */; };
+		B53DE5FE21E4B43F001DE422 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */; };
+		B53DE60521E4B5BE001DE422 /* GeofenceScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */; };
+		B53DE60721E4B6C7001DE422 /* GeofenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +31,17 @@
 /* Begin PBXFileReference section */
 		B53DE5D921E4B17C001DE422 /* GeofenceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53DE5DC21E4B17C001DE422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B53DE5DE21E4B17C001DE422 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B53DE5E121E4B17C001DE422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B53DE5DE21E4B17C001DE422 /* GeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceViewController.swift; sourceTree = "<group>"; };
+		B53DE5E121E4B17C001DE422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GeofenceViewController.storyboard; sourceTree = "<group>"; };
 		B53DE5E321E4B17E001DE422 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53DE5E621E4B17E001DE422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53DE5E821E4B17E001DE422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53DE5ED21E4B17E001DE422 /* GeofenceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofenceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53DE5F121E4B17E001DE422 /* GeofenceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceAppTests.swift; sourceTree = "<group>"; };
 		B53DE5F321E4B17F001DE422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceScreenFactory.swift; sourceTree = "<group>"; };
+		B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +83,9 @@
 		B53DE5DB21E4B17C001DE422 /* GeofenceApp */ = {
 			isa = PBXGroup;
 			children = (
+				B53DE5FF21E4B575001DE422 /* Screens */,
+				B53DE5FC21E4B42D001DE422 /* Protocols */,
 				B53DE5DC21E4B17C001DE422 /* AppDelegate.swift */,
-				B53DE5DE21E4B17C001DE422 /* ViewController.swift */,
-				B53DE5E021E4B17C001DE422 /* Main.storyboard */,
 				B53DE5E321E4B17E001DE422 /* Assets.xcassets */,
 				B53DE5E521E4B17E001DE422 /* LaunchScreen.storyboard */,
 				B53DE5E821E4B17E001DE422 /* Info.plist */,
@@ -94,6 +100,65 @@
 				B53DE5F321E4B17F001DE422 /* Info.plist */,
 			);
 			path = GeofenceAppTests;
+			sourceTree = "<group>";
+		};
+		B53DE5FC21E4B42D001DE422 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B53DE5FF21E4B575001DE422 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B53DE60021E4B575001DE422 /* Geofence */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B53DE60021E4B575001DE422 /* Geofence */ = {
+			isa = PBXGroup;
+			children = (
+				B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */,
+				B53DE60121E4B5A1001DE422 /* Model */,
+				B53DE60321E4B5A1001DE422 /* View */,
+				B53DE60221E4B5A1001DE422 /* ViewModel */,
+				B53DE60821E4B727001DE422 /* Services */,
+			);
+			path = Geofence;
+			sourceTree = "<group>";
+		};
+		B53DE60121E4B5A1001DE422 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B53DE60221E4B5A1001DE422 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B53DE60321E4B5A1001DE422 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B53DE5DE21E4B17C001DE422 /* GeofenceViewController.swift */,
+				B53DE5E021E4B17C001DE422 /* GeofenceViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B53DE60821E4B727001DE422 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +244,7 @@
 			files = (
 				B53DE5E721E4B17E001DE422 /* LaunchScreen.storyboard in Resources */,
 				B53DE5E421E4B17E001DE422 /* Assets.xcassets in Resources */,
-				B53DE5E221E4B17C001DE422 /* Main.storyboard in Resources */,
+				B53DE5E221E4B17C001DE422 /* GeofenceViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53DE5DF21E4B17C001DE422 /* ViewController.swift in Sources */,
+				B53DE60721E4B6C7001DE422 /* GeofenceViewModel.swift in Sources */,
+				B53DE5DF21E4B17C001DE422 /* GeofenceViewController.swift in Sources */,
+				B53DE5FE21E4B43F001DE422 /* StoryboardInstantiable.swift in Sources */,
+				B53DE60521E4B5BE001DE422 /* GeofenceScreenFactory.swift in Sources */,
 				B53DE5DD21E4B17C001DE422 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,12 +289,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B53DE5E021E4B17C001DE422 /* Main.storyboard */ = {
+		B53DE5E021E4B17C001DE422 /* GeofenceViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B53DE5E121E4B17C001DE422 /* Base */,
 			);
-			name = Main.storyboard;
+			name = GeofenceViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		B53DE5E521E4B17E001DE422 /* LaunchScreen.storyboard */ = {
