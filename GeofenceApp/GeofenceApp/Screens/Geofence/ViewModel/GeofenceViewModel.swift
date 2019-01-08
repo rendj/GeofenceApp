@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import CoreLocation
 
 class GeofenceViewModel {
-    
-    let locationService: GeofenceLocationService
+
+    private let locationService: GeofenceLocationService
     var updateStatus: ((String) -> Void)!
     
     init(locationService: GeofenceLocationService) {
         self.locationService = locationService
+    }
+    
+    func targetLocationWasPicked(location: CLLocation) {
+        
     }
     
     func requestGeofenceStatus() {

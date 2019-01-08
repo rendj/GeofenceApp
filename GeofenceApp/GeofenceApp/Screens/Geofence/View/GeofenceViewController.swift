@@ -37,8 +37,12 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func setupGestureRecognizer() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
+        let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(singleTapGesture)
+        
+        let mapViewSingleTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMapView))
+        mapViewSingleTapGesture.numberOfTapsRequired = 1
+        mapView.addGestureRecognizer(mapViewSingleTapGesture)
     }
     
     private func setupNotifications() {
@@ -60,8 +64,23 @@ extension GeofenceViewController: UITextFieldDelegate {
 }
 
 extension GeofenceViewController {
+    
     @objc private func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc func didTapMapView(recognizer: UITapGestureRecognizer) -> Void {
+        let existingAnnotations = mapView.annotations.filter { annotation in
+            !(annotation is MKUserLocation)
+        }
+        mapView.removeAnnotations(existingAnnotations)
+        let tapLocation = recognizer.location(in: mapView)
+        let mapCoordinate = mapView.convert(tapLocation, toCoordinateFrom: mapView)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = mapCoordinate
+        mapView.addAnnotation(annotation)
+        let pickedLocation = CLLocation(latitude: mapCoordinate.latitude, longitude: mapCoordinate.longitude)
+        viewModel.targetLocationWasPicked(location: pickedLocation)
     }
     
     @objc func keyboardNotification(notification: NSNotification) {
