@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
 class GeofenceViewController: UIViewController, StoryboardInstantiable {
 
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var areaRadiusTestField: UITextField!
+    @IBOutlet weak var wiFiHotspotNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func checkGeofenceStatus(_ sender: Any) {
+    }
 }
-
