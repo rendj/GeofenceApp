@@ -18,6 +18,7 @@
 		B53DE60721E4B6C7001DE422 /* GeofenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */; };
 		B53DE60A21E4F40D001DE422 /* GeofenceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */; };
 		B53DE60C21E52DF4001DE422 /* GeofenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60B21E52DF4001DE422 /* GeofenceModel.swift */; };
+		B53DE60E21E642D1001DE422 /* ConnectionInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60D21E642D1001DE422 /* ConnectionInfoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceViewModel.swift; sourceTree = "<group>"; };
 		B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceLocationService.swift; sourceTree = "<group>"; };
 		B53DE60B21E52DF4001DE422 /* GeofenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceModel.swift; sourceTree = "<group>"; };
+		B53DE60D21E642D1001DE422 /* ConnectionInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */,
+				B53DE60D21E642D1001DE422 /* ConnectionInfoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				B53DE60721E4B6C7001DE422 /* GeofenceViewModel.swift in Sources */,
 				B53DE5DF21E4B17C001DE422 /* GeofenceViewController.swift in Sources */,
 				B53DE60C21E52DF4001DE422 /* GeofenceModel.swift in Sources */,
+				B53DE60E21E642D1001DE422 /* ConnectionInfoService.swift in Sources */,
 				B53DE5FE21E4B43F001DE422 /* StoryboardInstantiable.swift in Sources */,
 				B53DE60521E4B5BE001DE422 /* GeofenceScreenFactory.swift in Sources */,
 				B53DE60A21E4F40D001DE422 /* GeofenceLocationService.swift in Sources */,

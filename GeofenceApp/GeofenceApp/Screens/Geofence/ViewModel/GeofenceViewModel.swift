@@ -12,12 +12,15 @@ import CoreLocation
 class GeofenceViewModel {
     private var model: GeofenceModel
     private let locationService: GeofenceLocationService
+    private let connectionService: ConnectionInfoService
+    
     var updateStatus: ((String) -> Void)!
     var startLocationDetectionActivity: (() -> Void)!
     var endLocationDetectionActivity: (() -> Void)!
     
-    init(locationService: GeofenceLocationService, model: GeofenceModel) {
+    init(locationService: GeofenceLocationService, connectionService: ConnectionInfoService, model: GeofenceModel) {
         self.locationService = locationService
+        self.connectionService = connectionService
         self.model = model
     }
     
@@ -40,7 +43,11 @@ class GeofenceViewModel {
             switch (currentLocation, error) {
             case (let currentLocation?, nil):
                 let pickedLocation = CLLocation(latitude: (self?.model.lattitude)!, longitude: (self?.model.longitude)!)
-                if UInt(pickedLocation.distance(from: currentLocation)) < (self?.model.radius)! {
+                if let enteredWiFiHotspotName = self?.model.wiFiHotspotName,
+                    let actualWiFiHotspotName = self?.connectionService.wiFiHotspotName(),
+                    enteredWiFiHotspotName == actualWiFiHotspotName {
+                    self?.updateStatus("INSIDE")
+                } else if UInt(pickedLocation.distance(from: currentLocation)) < (self?.model.radius)! {
                     self?.updateStatus("INSIDE")
                 } else {
                     self?.updateStatus("OUTSIDE")
