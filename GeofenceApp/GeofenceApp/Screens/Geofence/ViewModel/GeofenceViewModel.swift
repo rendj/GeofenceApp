@@ -38,24 +38,25 @@ class GeofenceViewModel {
     
     func requestGeofenceStatus() {
         startLocationDetectionActivity()
-        locationService.requestCurrentLocation { [weak self] (currentLocation, error) in
-            self?.endLocationDetectionActivity()
-            switch (currentLocation, error) {
-            case (let currentLocation?, nil):
-                let pickedLocation = CLLocation(latitude: (self?.model.lattitude)!, longitude: (self?.model.longitude)!)
-                if let enteredWiFiHotspotName = self?.model.wiFiHotspotName,
-                    let actualWiFiHotspotName = self?.connectionService.wiFiHotspotName(),
-                    enteredWiFiHotspotName == actualWiFiHotspotName {
-                    self?.updateStatus("INSIDE")
-                } else if UInt(pickedLocation.distance(from: currentLocation)) < (self?.model.radius)! {
-                    self?.updateStatus("INSIDE")
-                } else {
-                    self?.updateStatus("OUTSIDE")
+        if self.model.wiFiHotspotName == self.connectionService.wiFiHotspotName() {
+            endLocationDetectionActivity()
+            updateStatus("INSIDE")
+        } else {
+            locationService.requestCurrentLocation { [weak self] (currentLocation, error) in
+                self?.endLocationDetectionActivity()
+                switch (currentLocation, error) {
+                case (let currentLocation?, nil):
+                    let pickedLocation = CLLocation(latitude: (self?.model.lattitude)!, longitude: (self?.model.longitude)!)
+                    if UInt(pickedLocation.distance(from: currentLocation)) < (self?.model.radius)! {
+                        self?.updateStatus("INSIDE")
+                    } else {
+                        self?.updateStatus("OUTSIDE")
+                    }
+                case (nil, let error?):
+                    self?.updateStatus(error.localizedDescription)
+                default:
+                    self?.updateStatus("undefined...")
                 }
-            case (nil, let error?):
-                self?.updateStatus(error.localizedDescription)
-            default:
-                self?.updateStatus("undefined...")
             }
         }
     }

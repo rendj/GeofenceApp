@@ -73,12 +73,25 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
 extension GeofenceViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var finalString = textField.text!
+        if !string.isEmpty {
+            finalString += string
+        } else {
+            finalString.removeLast()
+        }
+        
         switch textField {
         case areaRadiusTestField:
-            //TODO: - is it make sense to get rid of "!"?
-            viewModel.radiusWasPicked(radius: UInt(textField.text! + string)!)
+            var radius = UInt(0)
+            if !finalString.isEmpty {
+                radius = UInt(finalString)!
+            } else {
+                radius = 0
+            }
+            viewModel.radiusWasPicked(radius: radius)
         case wiFiHotspotNameTextField:
-            viewModel.wiFiHotspotNameWasPicked(name: textField.text! + string)
+            viewModel.wiFiHotspotNameWasPicked(name: finalString)
         default: break
         }
         return true
