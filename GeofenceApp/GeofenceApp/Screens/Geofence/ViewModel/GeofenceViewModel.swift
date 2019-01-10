@@ -10,6 +10,8 @@ import Foundation
 import CoreLocation
 
 class GeofenceViewModel {
+    let calculatingStatusTitle = "Calculating..."
+    
     private var model: GeofenceModel
     private let locationService: GeofenceLocationService
     private let connectionService: ConnectionInfoService
@@ -59,5 +61,19 @@ class GeofenceViewModel {
                 }
             }
         }
+    }
+    
+    func finalString(from main:String, replacement: String) -> String {
+        var finalString = main
+        if !replacement.isEmpty {
+            finalString += replacement
+        } else {
+            finalString.removeLast()
+        }
+        return finalString
+    }
+    
+    func uint(from string: String) -> UInt {
+        return UInt(string) ?? UInt(0)
     }
 }

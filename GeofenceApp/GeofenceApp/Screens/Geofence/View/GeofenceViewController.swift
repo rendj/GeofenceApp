@@ -33,25 +33,25 @@ class GeofenceViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func setupViewModelBindings() {
-        viewModel.updateStatus = { [weak self] status in
-            self?.statusLabel.text = status
+        viewModel.updateStatus = { [unowned self] status in
+            self.statusLabel.text = status
         }
-        viewModel.startLocationDetectionActivity = { [weak self] in
-            //TODO: - move string to the Model
-            self?.statusLabel.text = "Calculating..."
-            self?.checkButton.isEnabled = false
-            self?.mapView.isUserInteractionEnabled = false
-            self?.locationCheckingActivityView.startAnimating()
+        viewModel.startLocationDetectionActivity = { [unowned self] in
+            self.statusLabel.text = self.viewModel.calculatingStatusTitle
+            self.checkButton.isEnabled = false
+            self.mapView.isUserInteractionEnabled = false
+            self.locationCheckingActivityView.startAnimating()
         }
-        viewModel.endLocationDetectionActivity =  { [weak self] in
-            self?.checkButton.isEnabled = true
-            self?.mapView.isUserInteractionEnabled = true
-            self?.locationCheckingActivityView.stopAnimating()
+        viewModel.endLocationDetectionActivity =  { [unowned self] in
+            self.checkButton.isEnabled = true
+            self.mapView.isUserInteractionEnabled = true
+            self.locationCheckingActivityView.stopAnimating()
         }
     }
     
     private func setupGestureRecognizer() {
         let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        singleTapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(singleTapGesture)
         
         let mapViewSingleTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMapView))
@@ -74,22 +74,12 @@ extension GeofenceViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        var finalString = textField.text!
-        if !string.isEmpty {
-            finalString += string
-        } else {
-            finalString.removeLast()
-        }
-        
+        let finalString = viewModel.finalString(from: textField.text!, replacement: string)
+
         switch textField {
         case areaRadiusTestField:
-            var radius = UInt(0)
-            if !finalString.isEmpty {
-                radius = UInt(finalString)!
-            } else {
-                radius = 0
-            }
-            viewModel.radiusWasPicked(radius: radius)
+            print(viewModel.uint(from: finalString))
+            viewModel.radiusWasPicked(radius: viewModel.uint(from: finalString))
         case wiFiHotspotNameTextField:
             viewModel.wiFiHotspotNameWasPicked(name: finalString)
         default: break
