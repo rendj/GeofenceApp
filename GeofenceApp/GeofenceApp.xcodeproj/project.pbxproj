@@ -12,13 +12,13 @@
 		B53DE5E221E4B17C001DE422 /* GeofenceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E021E4B17C001DE422 /* GeofenceViewController.storyboard */; };
 		B53DE5E421E4B17E001DE422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E321E4B17E001DE422 /* Assets.xcassets */; };
 		B53DE5E721E4B17E001DE422 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53DE5E521E4B17E001DE422 /* LaunchScreen.storyboard */; };
-		B53DE5F221E4B17E001DE422 /* GeofenceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5F121E4B17E001DE422 /* GeofenceAppTests.swift */; };
 		B53DE5FE21E4B43F001DE422 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */; };
 		B53DE60521E4B5BE001DE422 /* GeofenceScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */; };
 		B53DE60721E4B6C7001DE422 /* GeofenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60621E4B6C7001DE422 /* GeofenceViewModel.swift */; };
 		B53DE60A21E4F40D001DE422 /* GeofenceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */; };
 		B53DE60C21E52DF4001DE422 /* GeofenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60B21E52DF4001DE422 /* GeofenceModel.swift */; };
 		B53DE60E21E642D1001DE422 /* ConnectionInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60D21E642D1001DE422 /* ConnectionInfoService.swift */; };
+		B53DE61021E7B5E2001DE422 /* GeofenceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DE60F21E7B5E2001DE422 /* GeofenceModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		B53DE5E621E4B17E001DE422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53DE5E821E4B17E001DE422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53DE5ED21E4B17E001DE422 /* GeofenceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofenceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B53DE5F121E4B17E001DE422 /* GeofenceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceAppTests.swift; sourceTree = "<group>"; };
 		B53DE5F321E4B17F001DE422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53DE5FD21E4B43F001DE422 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		B53DE60421E4B5BE001DE422 /* GeofenceScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceScreenFactory.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		B53DE60921E4F40D001DE422 /* GeofenceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceLocationService.swift; sourceTree = "<group>"; };
 		B53DE60B21E52DF4001DE422 /* GeofenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceModel.swift; sourceTree = "<group>"; };
 		B53DE60D21E642D1001DE422 /* ConnectionInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoService.swift; sourceTree = "<group>"; };
+		B53DE60F21E7B5E2001DE422 /* GeofenceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +102,8 @@
 		B53DE5F021E4B17E001DE422 /* GeofenceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				B53DE5F121E4B17E001DE422 /* GeofenceAppTests.swift */,
 				B53DE5F321E4B17F001DE422 /* Info.plist */,
+				B53DE60F21E7B5E2001DE422 /* GeofenceModelTests.swift */,
 			);
 			path = GeofenceAppTests;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53DE5F221E4B17E001DE422 /* GeofenceAppTests.swift in Sources */,
+				B53DE61021E7B5E2001DE422 /* GeofenceModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +480,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RGGTABU42;
 				INFOPLIST_FILE = GeofenceAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -500,6 +501,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RGGTABU42;
 				INFOPLIST_FILE = GeofenceAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
